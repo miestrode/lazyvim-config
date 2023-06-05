@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-return {
-    "danymat/neogen",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    event = "VeryLazy",
-    config = true,
-    keys = {
-        { "<leader>d", "<cmd>Neogen<cr>", desc = "Annotate highlighted code" },
-=======
-local Util = require("lazyvim.util")
-
 return {
     {
         "danymat/neogen",
@@ -83,6 +72,5 @@ return {
                 desc = "Open greeter",
             },
         },
->>>>>>> 34ff364 (Addded support for Python, Typst and others and did other things)
     },
 }

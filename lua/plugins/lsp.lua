@@ -1,10 +1,9 @@
-return {
+return 
     {
         "williamboman/mason.nvim",
         opts = {
             ensure_installed = {
                 "lua-language-server",
-<<<<<<< HEAD
                 "stylua",
                 "pyright",
                 "black",
@@ -14,7 +13,6 @@ return {
                 icons = {
                     package_installed = "✓",
                     package_pending = "",
-=======
                 "typst-lsp",
             },
             automatic_installation = true,
@@ -22,17 +20,14 @@ return {
                 icons = {
                     package_installed = "✓",
                     package_pending = "",
->>>>>>> 34ff364 (Addded support for Python, Typst and others and did other things)
                     package_uninstalled = "✗",
                 },
             },
         },
     },
-<<<<<<< HEAD
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "plugins.extras.lang.java" },
     { import = "plugins.extras.lang.rust" },
-=======
     {
         "jay-babu/mason-null-ls.nvim",
         event = { "BufReadPre", "BufNewFile" },
@@ -87,5 +82,4 @@ return {
     { import = "plugins.extras.lang.java" },
     { import = "plugins.extras.lang.rust" },
     { import = "plugins.extras.lang.python" },
->>>>>>> 34ff364 (Addded support for Python, Typst and others and did other things)
 }
