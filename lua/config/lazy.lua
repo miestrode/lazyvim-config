@@ -10,6 +10,10 @@ require("lazy").setup({
     spec = {
         -- Add LazyVim and import its plugins
         { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+<<<<<<< HEAD
+=======
+        { import = "lazyvim.plugins.extras.util.project" },
+>>>>>>> 34ff364 (Addded support for Python, Typst and others and did other things)
         { import = "plugins" },
     },
     defaults = {
@@ -20,7 +24,11 @@ require("lazy").setup({
         -- have outdated releases, which may break your Neovim install.
         version = false, -- always use the latest git commit
     },
+<<<<<<< HEAD
     install = { colorscheme = { "tokyonight", "habamax" } },
+=======
+    install = { colorscheme = { "tokyonight" } },
+>>>>>>> 34ff364 (Addded support for Python, Typst and others and did other things)
     checker = { enabled = true }, -- Automatically check for plugin updates
     performance = {
         rtp = {
@@ -30,6 +38,10 @@ require("lazy").setup({
                 "tohtml",
                 "tutor",
                 "zipPlugin",
+<<<<<<< HEAD
+=======
+                "catpuccin",
+>>>>>>> 34ff364 (Addded support for Python, Typst and others and did other things)
             },
         },
     },

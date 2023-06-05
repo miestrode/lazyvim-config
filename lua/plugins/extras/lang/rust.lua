@@ -11,12 +11,17 @@ return {
         },
         opts = function(_, opts)
             local cmp = require("cmp")
+<<<<<<< HEAD
+=======
+
+>>>>>>> 34ff364 (Addded support for Python, Typst and others and did other things)
             -- The warnings don't mean much, as the function allows defaults
             opts.sources = cmp.config.sources(vim.list_extend(opts.sources, {
                 { name = "crates" },
             }))
         end,
     },
+<<<<<<< HEAD
     -- Add some useful Rust-related file formats to be installed by default on TS
     {
         "nvim-treesitter/nvim-treesitter",
@@ -32,6 +37,14 @@ return {
             -- The warnings don't mean much, as the function allows defaults
             vim.list_extend(opts.ensure_installed, { "codelldb", "rust-analyzer", "taplo" })
         end,
+=======
+    -- Install the DAP and LSP programs for Rust
+    {
+        "williamboman/mason.nvim",
+        opts = {
+            ensure_installed = { "codelldb", "rust-analyzer", "taplo" },
+        },
+>>>>>>> 34ff364 (Addded support for Python, Typst and others and did other things)
     },
     -- Setup rust-tools alongside
     {
@@ -76,7 +89,11 @@ return {
                                 border = "none",
                             },
                             inlay_hints = {
+<<<<<<< HEAD
                                 auto = false,
+=======
+                                auto = true,
+>>>>>>> 34ff364 (Addded support for Python, Typst and others and did other things)
                                 show_parameter_hints = true,
                             },
                         },

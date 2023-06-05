@@ -7,3 +7,8 @@ local opt = vim.opt
 opt.tabstop = 4
 opt.softtabstop = 4
 opt.shiftwidth = 4
+<<<<<<< HEAD
+=======
+
+vim.loader.enable()
+>>>>>>> 34ff364 (Addded support for Python, Typst and others and did other things)
