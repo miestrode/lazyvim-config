@@ -2,9 +2,9 @@ return {
     -- Add support for Java files in TS
     {
         "nvim-treesitter/nvim-treesitter",
-        opts = function(_, opts)
-            vim.list_extend(opts.ensure_installed, { "java" })
-        end,
+        opts = {
+            ensure_installed = { "java" }
+        }
     },
     -- Install the Java LSP and debugging programs
     {
@@ -110,7 +110,8 @@ return {
                                         },
                                         codeGeneration = {
                                             toString = {
-                                                template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
+                                                template =
+                                                "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
                                             },
                                             useBlocks = true,
                                         },

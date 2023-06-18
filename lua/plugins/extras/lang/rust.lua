@@ -11,7 +11,7 @@ return {
         },
         opts = function(_, opts)
             local cmp = require("cmp")
-            
+
             -- The warnings don't mean much, as the function allows defaults
             opts.sources = cmp.config.sources(vim.list_extend(opts.sources, {
                 { name = "crates" },
@@ -21,10 +21,7 @@ return {
     -- Add some useful Rust-related file formats to be installed by default on TS
     {
         "nvim-treesitter/nvim-treesitter",
-        opts = function(_, opts)
-            -- The warnings don't mean much, as the function allows defaults
-            vim.list_extend(opts.ensure_installed, { "ron", "rust", "toml" })
-        end,
+        opts = { ensure_installed = { "ron", "rust", "toml" } },
     },
     -- Install the DAP and LSP programs for Rust
     {

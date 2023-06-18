@@ -5,7 +5,7 @@ return {
         event = "VeryLazy",
         config = true,
         keys = {
-            { "<leader>d", "<cmd>Neogen<cr>", desc = "Annotate highlighted code" },
+            { "<leader>cg", "<cmd>Neogen<cr>", desc = "Annotate highlighted code" },
         },
     },
     {
@@ -21,7 +21,7 @@ return {
             },
             {
                 "<leader>br",
-                "<cmd>BufferLineClose<cr>",
+                "<cmd>BufferLinePickClose<cr>",
                 desc = "Close opened buffer",
             },
         },
