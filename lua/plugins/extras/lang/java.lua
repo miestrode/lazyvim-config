@@ -2,9 +2,9 @@ return {
     -- Add support for Java files in TS
     {
         "nvim-treesitter/nvim-treesitter",
-        opts = {
-            ensure_installed = { "java" }
-        }
+        opts = function(_, opts)
+            vim.list_extend(opts.ensure_installed, { "java" })
+        end,
     },
     -- Install the Java LSP and debugging programs
     {
@@ -95,7 +95,6 @@ return {
                                     end, { buffer = buffer, desc = "Run Test" })
                                     require("jdtls").setup_dap({ hotcodereplace = "auto" })
                                     require("jdtls.dap").setup_dap_main_class_configs()
-                                    require("jdtls.setup").add_commands()
                                 end,
                                 cmd = {
                                     jdtls_bin,
@@ -110,8 +109,7 @@ return {
                                         },
                                         codeGeneration = {
                                             toString = {
-                                                template =
-                                                "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
+                                                template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
                                             },
                                             useBlocks = true,
                                         },

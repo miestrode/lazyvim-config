@@ -1,88 +1,67 @@
-return {
-    {
-        "williamboman/mason.nvim",
-        opts = {
-            ensure_installed = {
-                "black",
-                "blackd-client",
-            },
-        },
-    },
-    {
-        "jose-elias-alvarez/null-ls.nvim",
-        opts = function(_, opts)
-            opts.sources = vim.list_extend(opts.sources, {
-                require("null-ls").builtins.formatting.isort,
-                {
-                    name = "blackd",
-                    method = require("null-ls").methods.FORMATTING,
-                    filetypes = { "python" },
-                    generator = require("null-ls.helpers").formatter_factory({
-                        command = "blackd-client",
-                        to_stdin = true,
-                    }),
-                },
-            })
+local MAX_LINE_LENGTH = 120
 
-            return opts
-        end,
-    },
+return {
     {
         "neovim/nvim-lspconfig",
         opts = {
             servers = {
                 pylsp = {
-                    plugins = {
-                        rope_autoimport = { enabled = true },
-                        pycodestyle = { maxLineLength = 100 },
+                    settings = {
+                        pylsp = {
+                            plugins = {
+                                pycodestyle = { maxLineLength = MAX_LINE_LENGTH },
+                                black = { line_length = MAX_LINE_LENGTH },
+                            },
+                        },
                     },
                 },
             },
         },
     },
     {
-        "mfussenegger/nvim-dap",
-        config = function(_, opts)
-            local dap = require("dap")
-
-            dap.adapters.python = function(cb, config)
-                if config.request == "attach" then
-                    ---@diagnostic disable-next-line: undefined-field
-                    local port = (config.connect or config).port
-                    ---@diagnostic disable-next-line: undefined-field
-                    local host = (config.connect or config).host or "127.0.0.1"
-                    cb({
-                        type = "server",
-                        port = assert(port, "`connect.port` is required for a python `attach` configuration"),
-                        host = host,
-                        options = {
-                            source_filetype = "python",
-                        },
-                    })
-                else
-                    cb({
-                        type = "executable",
-                        command = "path/to/virtualenvs/debugpy/bin/python",
-                        args = { "-m", "debugpy.adapter" },
-                        options = {
-                            source_filetype = "python",
-                        },
-                    })
-                end
-            end
+        "williamboman/mason.nvim",
+        opts = function(_, opts)
+            vim.list_extend(opts.ensure_installed, { "debugpy", "pyflakes" })
         end,
+    },
+    {
+        "williamboman/mason-lspconfig.nvim",
+        config = function(_, opts)
+            require("mason-lspconfig").setup(opts)
+
+            vim.cmd("PylspInstall python-lsp-black pyls-isort pylsp-rope")
+        end,
+    },
+    {
+        "mfussenegger/nvim-dap",
+        optional = true,
+        dependencies = {
+            "mfussenegger/nvim-dap-python",
+    -- stylua: ignore
+    keys = {
+      { "<leader>dPt", function() require('dap-python').test_method() end, desc = "Debug Method" },
+      { "<leader>dPc", function() require('dap-python').test_class() end, desc = "Debug Class" },
+    },
+            config = function()
+                local path = require("mason-registry").get_package("debugpy"):get_install_path()
+                require("dap-python").setup(path .. "/venv/bin/python")
+            end,
+        },
     },
     {
         "linux-cultist/venv-selector.nvim",
         dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim" },
         config = true,
+        opts = {
+            anaconda_path = "$MAMBA_ROOT_PREFIX/envs",
+        },
         -- This can be used to access the VenvSelect command, without a keybinding, however I currently need not do that
         -- event = "VeryLazy",
         keys = {
             {
                 "<leader>cv",
                 "<cmd>:VenvSelect<cr>",
-                desc = "Select venv",
+                desc = "Select VirtualEnv",
             },
         },
     },
