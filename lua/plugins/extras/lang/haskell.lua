@@ -24,8 +24,8 @@ return {
             "nvim-telescope/telescope.nvim",
         },
         branc = "1.x.x",
-        event = "BufEnter *.hs",
-        init = function(_)
+        ft = "hs",
+        opts = function(_)
             local ht = require("haskell-tools")
             local def_opts = { noremap = true, silent = true }
 

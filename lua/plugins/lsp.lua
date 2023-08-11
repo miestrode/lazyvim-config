@@ -1,5 +1,11 @@
 return {
     {
+        "neovim/nvim-lspconfig",
+        opts = {
+            inlay_hints = { enabled = true },
+        },
+    },
+    {
         "williamboman/mason.nvim",
         opts = {
             ui = {
@@ -33,6 +39,9 @@ return {
         opts = {
             automatic_installation = true,
         },
+    },
+    {
+        "mhartington/formatter.nvim",
     },
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.rust" },
