@@ -26,6 +26,18 @@ return {
         },
     },
     {
+        "nvim-neo-tree/neo-tree.nvim",
+        opts = {
+            filesystem = {
+                filtered_items = {
+                    visible = true,
+                    hide_dotfiles = false,
+                    hide_gitignored = true,
+                },
+            },
+        },
+    },
+    {
         "goolord/alpha-nvim",
         keys = {
             {
@@ -35,4 +47,5 @@ return {
             },
         },
     },
+    { import = "lazyvim.plugins.extras.util.project" },
 }
