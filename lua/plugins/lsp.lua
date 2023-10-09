@@ -28,7 +28,7 @@ return {
         event = { "BufReadPre", "BufNewFile" },
         dependencies = {
             "williamboman/mason.nvim",
-            "jose-elias-alvarez/null-ls.nvim",
+            "nvimtools/none-ls.nvim",
         },
         opts = {
             automatic_installation = true,
@@ -44,13 +44,12 @@ return {
         "mhartington/formatter.nvim",
     },
     { import = "lazyvim.plugins.extras.lang.json" },
-    { import = "lazyvim.plugins.extras.lang.rust" },
     { import = "lazyvim.plugins.extras.lang.java" },
+    { import = "lazyvim.plugins.extras.lang.python" },
+    { import = "lazyvim.plugins.extras.lang.tex" },
+    { import = "lazyvim.plugins.extras.lang.yaml" },
     { import = "lazyvim.plugins.extras.dap.core" },
     { import = "lazyvim.plugins.extras.dap.nlua" },
     -- Local language support
-    { import = "plugins.extras.lang.python" },
     { import = "plugins.extras.lang.lua" },
-    { import = "plugins.extras.lang.futhark" },
-    { import = "plugins.extras.lang.haskell" },
 }

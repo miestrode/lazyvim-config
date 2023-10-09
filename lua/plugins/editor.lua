@@ -48,4 +48,6 @@ return {
         },
     },
     { import = "lazyvim.plugins.extras.util.project" },
+    { import = "lazyvim.plugins.extras.coding.codeium" },
+    { import = "lazyvim.plugins.extras.formatting.confrom" },
 }

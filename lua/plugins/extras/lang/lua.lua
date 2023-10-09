@@ -1,6 +1,6 @@
 return {
     {
-        "jose-elias-alvarez/null-ls.nvim",
+        "nvimtools/none-ls.nvim",
         opts = function(_, opts)
             opts.sources = vim.list_extend(opts.sources, {
                 require("null-ls").builtins.formatting.stylua,
