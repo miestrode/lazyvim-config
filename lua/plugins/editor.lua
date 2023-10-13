@@ -1,4 +1,5 @@
 return {
+    -- Add Neogen, a documentation ("annotation") generator for code.
     {
         "danymat/neogen",
         dependencies = "nvim-treesitter/nvim-treesitter",
@@ -7,6 +8,7 @@ return {
             { "<leader>cg", "<cmd>Neogen<cr>", desc = "Annotate highlighted code" },
         },
     },
+    -- Add shortcuts to the tab bar for opening and closing files, and add an LSP error preview to each tab.
     {
         "akinsho/bufferline.nvim",
         opts = {
@@ -25,6 +27,7 @@ return {
             },
         },
     },
+    -- Change some visibility settings in Neo-tree
     {
         "nvim-neo-tree/neo-tree.nvim",
         opts = {
@@ -37,6 +40,7 @@ return {
             },
         },
     },
+    -- Instead of using LazyGit, use NeoGit, which is a Git integration provider for Neovim.
     {
         "NeogitOrg/neogit",
         dependencies = {
@@ -46,5 +50,21 @@ return {
             "ibhagwan/fzf-lua",
         },
         config = true,
+        keys = {
+            g = {
+                G = {
+                    function()
+                        require("neogit").open()
+                    end,
+                    "NeoGit (cwd)",
+                },
+                g = {
+                    function()
+                        require("neogit").open({ cwd = require("lazyvim.util").root() })
+                    end,
+                    "NeoGit (root dir)",
+                },
+            },
+        },
     },
 }

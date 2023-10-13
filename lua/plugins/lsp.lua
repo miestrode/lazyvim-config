@@ -1,4 +1,5 @@
 return {
+    -- Enable inlay hints
     {
         "neovim/nvim-lspconfig",
         opts = {
