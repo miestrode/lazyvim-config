@@ -14,14 +14,14 @@ return {
         },
         keys = {
             {
-                "<leader>bp",
+                "<leader>bo",
                 "<cmd>BufferLinePick<cr>",
-                desc = "Pick opened buffer",
+                desc = "Open buffer from bufferline",
             },
             {
-                "<leader>br",
+                "<leader>bc",
                 "<cmd>BufferLinePickClose<cr>",
-                desc = "Close opened buffer",
+                desc = "Close buffer from bufferline",
             },
         },
     },
@@ -38,16 +38,13 @@ return {
         },
     },
     {
-        "goolord/alpha-nvim",
-        keys = {
-            {
-                "<leader>ug",
-                "<cmd>Alpha<cr>",
-                desc = "Open greeter",
-            },
+        "NeogitOrg/neogit",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim",
+            "sindrets/diffview.nvim",
+            "ibhagwan/fzf-lua",
         },
+        config = true,
     },
-    { import = "lazyvim.plugins.extras.util.project" },
-    { import = "lazyvim.plugins.extras.coding.codeium" },
-    { import = "lazyvim.plugins.extras.formatting.confrom" },
 }
