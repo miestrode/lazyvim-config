@@ -51,19 +51,19 @@ return {
         },
         config = true,
         keys = {
-            g = {
-                G = {
-                    function()
-                        require("neogit").open()
-                    end,
-                    "NeoGit (cwd)",
-                },
-                g = {
-                    function()
-                        require("neogit").open({ cwd = require("lazyvim.util").root() })
-                    end,
-                    "NeoGit (root dir)",
-                },
+            {
+                "<leader>gG",
+                function()
+                    require("neogit").open()
+                end,
+                desc = "NeoGit (cwd)",
+            },
+            {
+                "<leader>gg",
+                function()
+                    require("neogit").open({ cwd = require("lazyvim.util").root() })
+                end,
+                desc = "NeoGit (root dir)",
             },
         },
     },
