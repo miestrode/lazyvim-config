@@ -67,4 +67,6 @@ return {
             },
         },
     },
+    { "sindrets/diffview.nvim" },
+    { import = "lazyvim.plugins.extras.test" },
 }
