@@ -1,13 +1,4 @@
 return {
-    -- Add Neogen, a documentation ("annotation") generator for code.
-    {
-        "danymat/neogen",
-        dependencies = "nvim-treesitter/nvim-treesitter",
-        config = true,
-        keys = {
-            { "<leader>cg", "<cmd>Neogen<cr>", desc = "Annotate highlighted code" },
-        },
-    },
     -- Add shortcuts to the tab bar for opening and closing files, and add an LSP error preview to each tab.
     {
         "akinsho/bufferline.nvim",
@@ -67,6 +58,5 @@ return {
             },
         },
     },
-    { "sindrets/diffview.nvim" },
     { import = "lazyvim.plugins.extras.test" },
 }
