@@ -10,4 +10,6 @@ opt.shiftwidth = 4
 opt.clipboard = "unnamedplus"
 opt.wrap = true
 
+opt.shell = "/bin/fish"
+
 vim.loader.enable()
