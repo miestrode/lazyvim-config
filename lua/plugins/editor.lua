@@ -9,12 +9,12 @@ return {
             {
                 "<leader>bo",
                 "<cmd>BufferLinePick<cr>",
-                desc = "Open buffer from bufferline",
+                desc = "Open buffer",
             },
             {
                 "<leader>bc",
                 "<cmd>BufferLinePickClose<cr>",
-                desc = "Close buffer from bufferline",
+                desc = "Close buffer",
             },
         },
     },
@@ -59,5 +59,11 @@ return {
             },
         },
     },
-    { import = "lazyvim.plugins.extras.test" },
+    { "Exafunction/codeium.nvim", opts = {
+        enable_chat = true,
+    } },
+    { import = "lazyvim.plugins.extras.coding.codeium" },
+    { import = "lazyvim.plugins.extras.editor.trouble-v3" },
+    { import = "lazyvim.plugins.extras.ui.mini-animate" },
+    { import = "lazyvim.plugins.extras.coding.mini-surround" },
 }
