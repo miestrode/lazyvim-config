@@ -62,8 +62,6 @@ return {
     { "Exafunction/codeium.nvim", opts = {
         enable_chat = true,
     } },
-    { import = "lazyvim.plugins.extras.coding.codeium" },
-    { import = "lazyvim.plugins.extras.editor.trouble-v3" },
     { import = "lazyvim.plugins.extras.ui.mini-animate" },
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
 }
