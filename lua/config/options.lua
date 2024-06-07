@@ -11,3 +11,5 @@ vim.opt.wrap = true
 vim.opt.shell = "/bin/fish"
 
 vim.loader.enable()
+
+vim.g.lazyvim_python_lsp = "basedpyright"
